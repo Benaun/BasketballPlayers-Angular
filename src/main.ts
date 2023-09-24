@@ -2,20 +2,16 @@ import 'zone.js/dist/zone';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { bootstrapApplication } from '@angular/platform-browser';
+import { PlayersListComponent } from './players-list/players-list.component';
 
 @Component({
   selector: 'my-app',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PlayersListComponent],
   template: `
-    <h1>Hello from {{ name }}!</h1>
-    <a target="_blank" href="https://angular.io/start">
-      Learn more about Angular
-    </a>
+    <app-players-list> </app-players-list>
   `,
 })
-export class App {
-  name = 'Angular';
-}
+export class App {}
 
 bootstrapApplication(App);
