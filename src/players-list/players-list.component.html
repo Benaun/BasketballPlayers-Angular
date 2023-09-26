@@ -3,19 +3,18 @@
   <div class="players_list">
     <div class="players_item" *ngFor="let item of items">
       <img [src]="item.photo" alt="{{ item.name }}" />
-      <p class="player_name">{{ item.name }}</p>
+      <p class="player_name">{{ item.name | uppercase }}</p>
       <p class="player_stats">
         <span>СТАТИСТИКА</span>: <span>очки</span>: {{ item.stats.points }},
         <span>подборы</span>: {{ item.stats.rebound }}, <span>блок-шоты</span>:
         {{ item.stats.blocks }}, <span>перехваты</span>:
-        {{ item.stats.steals }}, <span>передачи</span>: {{ item.stats.passes }}
+        {{ item.stats.steals }}, <span>передачи</span>: {{ item.stats.passes }},
+        <span>стоимость</span>: {{ item.price | currency }}
       </p>
-      <p class="player_description" [hidden]="condition">{{ item.info }}</p>
+      <p class="player_description" *ngIf="info">{{ item.info }}</p>
     </div>
+    <button (click)="info = !info" class="player_info">
+      {{ info ? 'Скрыть' : 'Показать' }}
+    </button>
   </div>
-  <button (click)="toggle()" class="player_info" *ngIf="condition">
-    Подробнее об игроках</button
-  ><button (click)="toggle()" class="player_info" *ngIf="!condition">
-    Скрыть информацию
-  </button>
 </div>
