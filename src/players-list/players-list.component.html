@@ -12,7 +12,7 @@
         <span>подборы</span>: {{ item.stats.rebound }}, <span>блок-шоты</span>:
         {{ item.stats.blocks }}, <span>перехваты</span>:
         {{ item.stats.steals }}, <span>передачи</span>: {{ item.stats.passes }},
-        <span>стоимость</span>: {{ item.price | currency }}
+        <span>стоимость</span>: {{ item.price | currency: '':'symbol':'0.0-1' }}
       </p>
       <p class="player_description" *ngIf="info">{{ item.info }}</p>
     </div>
