@@ -1,8 +1,11 @@
 <div class="container">
   <h2 class="title">Top 10 NBA Players</h2>
+  <button (click)="info = !info" class="player_info">
+    {{ info ? 'Скрыть' : 'Показать' }} информацию об игроках
+  </button>
   <div class="players_list">
     <div class="players_item" *ngFor="let item of items">
-      <img [src]="item.photo" alt="{{ item.name }}" />
+      <img [src]="item.photo" [alt]="item.name" />
       <p class="player_name">{{ item.name | uppercase }}</p>
       <p class="player_stats">
         <span>СТАТИСТИКА</span>: <span>очки</span>: {{ item.stats.points }},
@@ -13,8 +16,5 @@
       </p>
       <p class="player_description" *ngIf="info">{{ item.info }}</p>
     </div>
-    <button (click)="info = !info" class="player_info">
-      {{ info ? 'Скрыть' : 'Показать' }}
-    </button>
   </div>
 </div>
